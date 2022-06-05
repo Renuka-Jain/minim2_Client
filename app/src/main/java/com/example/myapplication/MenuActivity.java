@@ -25,4 +25,9 @@ public class MenuActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void buttonRanking(android.view.View v) {
+        Intent intent = new Intent(this, Ranking.class);
+        startActivity(intent);
+    }
+
 }

@@ -1,30 +1,29 @@
 package com.example.myapplication;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.myapplication.models.*;
-
 import android.content.Context;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.myapplication.models.Stats;
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
 
-    private List<User> userList;
+    private List<Stats> StatsList;
     private Context context;
 
-    public RecyclerViewAdapter(Context ct, List<User> users){
+    public RecyclerViewAdapter(Context ct, List<Stats> stats){
         this.context = ct;
 
-        userList = users;
+        StatsList = stats;
     }
     @NonNull
     @Override
@@ -37,29 +36,33 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.username.setText(userList.get(position).getUsername());
-        holder.name.setText(userList.get(position).getName());
-
+        holder.name.setText("User: " + StatsList.get(position).getUser());
+        holder.date.setText("Date: " + StatsList.get(position).getDate());
+        String points = "Score: " + String.valueOf(StatsList.get(position).getScore());
+        holder.score.setText(points);
+        Picasso.with(context).load(StatsList.get(position).getAvatar()).into(holder.avatar);
     }
 
     @Override
     public int getItemCount() {
-        return userList.size();
+        return StatsList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
-
-
+        public TextView date;
         public TextView name;
-        public TextView username;
+        public TextView score;
         public View layout;
+        public ImageView avatar;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             layout = itemView;
-            username = (TextView) itemView.findViewById(R.id.textRecyclerUser);
+            date = (TextView) itemView.findViewById(R.id.textRecyclerDATE);
             name = (TextView) itemView.findViewById(R.id.textRecyclerName);
+            score = (TextView) itemView.findViewById(R.id.textViewRecyclerScore);
+            avatar = (ImageView) itemView.findViewById(R.id.imageViewRecycler);
 
         }
     }
