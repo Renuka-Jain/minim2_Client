@@ -13,7 +13,28 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".Ranking"
+            android:name=".MainFAQs"
+            android:exported="false" />
+        <activity
+            android:name=".RankingUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UnityHandlerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StartGameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GameSaveActivity"
+            android:exported="false" />
+        <activity
+            android:name=".InventoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TiendaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RankingActivity"
             android:exported="false" />
         <activity
             android:name=".ProfileActivity"

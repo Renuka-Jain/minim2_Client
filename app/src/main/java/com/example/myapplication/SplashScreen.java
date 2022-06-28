@@ -29,7 +29,7 @@ public class SplashScreen extends AppCompatActivity {
                     finish();
                     SharedPreferences sharedPref = getSharedPreferences("myPref", Context.MODE_PRIVATE);
                     Intent i = new Intent();
-                    if (sharedPref.getString("User","")!=null) {
+                    if (sharedPref.getString("User",null)!=null) {
                         i.setClass(SplashScreen.this, MenuActivity.class);
                     }else{
                         i.setClass(SplashScreen.this, LoginActivity.class);

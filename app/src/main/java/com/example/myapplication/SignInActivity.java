@@ -1,7 +1,6 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.myapplication.models.UserData;
 
 
 import android.content.Context;
@@ -13,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.util.Log;
 
+import com.example.myapplication.models.RegisterCredentials;
 import com.example.myapplication.models.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -57,15 +57,12 @@ public class SignInActivity extends AppCompatActivity {
         postData(nameTxt.getText().toString(), surnameTxt.getText().toString(), mailTxt.getText().toString(), passTxt.getText().toString());
     }
 
-    private void postData(String name, String surname, String mail, String pass) {
-
-
-
+    private void postData(String name, String username, String mail, String pass) {
         //Log.i("Grup3", postData);
         Gson gson = new GsonBuilder().setLenient().create();
         Retrofit retrofit = new Retrofit.Builder().baseUrl(RetrofitAPI.BASE_URL).addConverterFactory(GsonConverterFactory.create(gson)).build();
         RetrofitAPI gerritAPI = retrofit.create(RetrofitAPI.class);
-        Call<User> call = gerritAPI.add(new UserData(name, surname, mail, pass));
+        Call<User> call = gerritAPI.addUser(new User(name, username, pass,mail, 0));
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
@@ -75,7 +72,7 @@ public class SignInActivity extends AppCompatActivity {
                     User user = response.body();
                     String userNom = user.getUsername();
                     Log.i("Name", ":"+ userNom);
-                    String userPsw = user.getPass();
+                    String userPsw = user.getPassword();
                     Log.i("Psw", ":"+ userPsw);
                     Log.i("REGISTER", "OK" + user);
 

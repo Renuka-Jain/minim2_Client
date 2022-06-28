@@ -26,11 +26,16 @@
         <entry key="..\:/Users/renuk/AndroidStudioProjects/MyApplicationDSA/app/src/main/res/layout/activity_game2.xml" value="0.1" />
         <entry key="..\:/Users/renuk/AndroidStudioProjects/MyApplicationDSA/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Users/renuk/AndroidStudioProjects/MyApplicationDSA/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/renuk/Desktop/Android/app/src/main/res/layout/activity_inventory.xml" value="0.25" />
         <entry key="..\:/Users/renuk/Desktop/Android/app/src/main/res/layout/activity_main_faqs.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/renuk/Desktop/Android/app/src/main/res/layout/activity_menu.xml" value="0.2" />
+        <entry key="..\:/Users/renuk/Desktop/Android/app/src/main/res/layout/activity_profile.xml" value="0.72" />
         <entry key="..\:/Users/renuk/Desktop/Android/app/src/main/res/layout/activity_ranking.xml" value="0.2359375" />
-        <entry key="..\:/Users/renuk/Desktop/Android/app/src/main/res/layout/recycler.xml" value="0.4" />
+        <entry key="..\:/Users/renuk/Desktop/Android/app/src/main/res/layout/activity_tienda.xml" value="0.25" />
+        <entry key="..\:/Users/renuk/Desktop/Android/app/src/main/res/layout/recycler.xml" value="0.2884097035040431" />
         <entry key="..\:/Users/renuk/Desktop/Android/app/src/main/res/layout/recyclerfaqs.xml" value="0.203125" />
+        <entry key="..\:/Users/renuk/Desktop/Android/app/src/main/res/layout/recyclerinventory.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/renuk/Desktop/Android/app/src/main/res/layout/recyclertienda.xml" value="0.264" />
       </map>
     </option>
   </component>

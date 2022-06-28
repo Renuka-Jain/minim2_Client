@@ -12,8 +12,8 @@ import android.widget.Toast;
 import android.content.SharedPreferences;
 
 
+import com.example.myapplication.models.CredentialsLogIn;
 import com.example.myapplication.models.User;
-import com.example.myapplication.models.UserData;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -40,7 +40,6 @@ public class LoginActivity extends AppCompatActivity {
     public void buttonLOGIN(android.view.View v) {
         if (userName.getText().toString().isEmpty() || psw.getText().toString().isEmpty() ) {
             Toast.makeText(LoginActivity.this, "Please enter all the values", Toast.LENGTH_SHORT).show();
-
             return;
         }
         else
@@ -49,11 +48,10 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public void postData(String userName, String psw) {
-
         Gson gson = new GsonBuilder().setLenient().create();
         Retrofit retrofit = new Retrofit.Builder().baseUrl(RetrofitAPI.BASE_URL).addConverterFactory(GsonConverterFactory.create(gson)).build();
         RetrofitAPI gerritAPI = retrofit.create(RetrofitAPI.class);
-        Call<User> call = gerritAPI.login(new UserData(null, userName, null, psw));
+        Call<User> call = gerritAPI.userLogIn(new CredentialsLogIn(userName, psw));
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
@@ -63,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
                     User user = response.body();
                         String userNom = user.getUsername();
                         Log.i("Name", ":"+ userNom);
-                        String userPsw = user.getPass();
+                        String userPsw = user.getPassword();
                         Log.i("Psw", ":"+ userPsw);
                         /*String userMail = user.getMail();
                         Log.i("Mail", ":"+userMail);*/
@@ -81,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     Toast.makeText(LoginActivity.this, "Usuario y password correctas", Toast.LENGTH_LONG).show();
                 }else {
-                    Toast.makeText(LoginActivity.this, "Usuario y/o password incorrectas", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Usuario y/o password incorrectass", Toast.LENGTH_LONG).show();
 
                 }
             }
